@@ -8,8 +8,6 @@ std::pair<unsigned int, unsigned int> RandomStrategy::MakeMove(unsigned int roun
 	std::pair<unsigned int, unsigned int> result;
 	std::vector<unsigned int> possible_moves;
 
-	srand (time(NULL));
-
 	unsigned int macroboard_id = -1;
 
 	for(int i = 0; i < 9; i++) 
@@ -35,27 +33,11 @@ std::vector<unsigned int> RandomStrategy::GetPossibleMoves(std::vector<unsigned 
 {
 	std::vector<unsigned int> possible_moves;
 
-	if (macroboard_id != -1)
+	for (int y = 0; y < 9; y++)
 	{
-		for (int y = 0; y < 9; y++)
+		for (int x = 0; x < 9; x++)
 		{
-			for (int x = 0; x < 9; x++)
-			{
-				if ((std::floor(x / 3) + std::floor(y / 3) * 3) == macroboard_id)
-				{
-					if (field[x + y * 9] == 0)
-					{
-						possible_moves.push_back(x + (y * 9));
-					}
-				}
-			}
-		}
-	}
-	else
-	{
-		for (int y = 0; y < 9; y++)
-		{
-			for (int x = 0; x < 9; x++)
+			if ((macroboard_id == -1) || ((std::floor(x / 3) + std::floor(y / 3) * 3) == macroboard_id))
 			{
 				if (field[x + y * 9] == 0)
 				{

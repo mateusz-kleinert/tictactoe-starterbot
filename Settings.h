@@ -8,8 +8,7 @@
 
 namespace TicTacToe {
 
-struct Settings 
-{
+struct Settings {
 public:
     unsigned int GetTimebank() { return timebank_; }
     unsigned int GetTimePermove() { return time_per_move_; }

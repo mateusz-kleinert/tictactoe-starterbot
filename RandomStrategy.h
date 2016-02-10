@@ -13,7 +13,7 @@ namespace TicTacToe {
 
 class RandomStrategy : public Strategy {
 public:
-	RandomStrategy () : Strategy() {}
+	RandomStrategy () : Strategy() { srand (time(NULL)); }
 	std::pair<unsigned int, unsigned int> MakeMove(unsigned int round, 
 		unsigned int move, std::vector<unsigned int> field, std::vector<unsigned int> macroboard);
 private:
